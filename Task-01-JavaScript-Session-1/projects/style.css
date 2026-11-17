@@ -1,0 +1,105 @@
+/* Shared styles for all six JavaScript function projects */
+:root {
+  --background: #f4f6fb;
+  --card: #ffffff;
+  --text: #1d2433;
+  --muted: #5b6475;
+  --primary: #2f5bea;
+  --success: #1a8f4c;
+  --error: #c62f3a;
+  --border: #dde2ee;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 18px 24px;
+}
+header h1 { margin: 0; font-size: 24px; }
+header p { margin: 4px 0 0; opacity: .9; }
+header a { color: #fff; }
+main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  padding: 18px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 10px; font-size: 17px; }
+.card h2 .function-name { font-family: Consolas, monospace; font-size: 13px; color: var(--primary); font-weight: normal; }
+label { display: block; font-size: 13px; color: var(--muted); margin: 8px 0 3px; }
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+button {
+  background: var(--primary);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 8px 6px 0 0;
+}
+button:hover { filter: brightness(1.1); }
+button.secondary { background: #6b7385; }
+button.danger { background: var(--error); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.row > * { flex: 1; min-width: 140px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); }
+th { background: #eef1f8; }
+.message { margin-top: 10px; padding: 8px 10px; border-radius: 6px; font-size: 14px; display: none; }
+.message.success { display: block; background: #e5f6ec; color: var(--success); }
+.message.error { display: block; background: #fbe7e9; color: var(--error); }
+.hidden { display: none !important; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; background: #eef1f8; font-size: 12px; }
+.total { font-size: 18px; font-weight: bold; }
+/* Activity log: shows every function call so the working of each function is visible */
+#activityLog {
+  position: sticky;
+  top: 18px;
+  background: #11182a;
+  color: #cfe3ff;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: Consolas, monospace;
+  font-size: 12.5px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+#activityLog h3 { margin: 0 0 8px; color: #fff; font-family: "Segoe UI", Arial, sans-serif; }
+#activityLog div { padding: 4px 0; border-bottom: 1px dashed #2a3550; }
+#activityLog .function-name { color: #ffd479; }
+.seats { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 8px; }
+.seat {
+  padding: 8px 0; text-align: center; border-radius: 5px; font-size: 12px;
+  background: #e5f6ec; border: 1px solid #9ad3b0; cursor: pointer; user-select: none;
+}
+.seat.booked { background: #ccc; border-color: #aaa; color: #777; cursor: not-allowed; }
+.seat.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
+.ticket { border: 2px dashed var(--primary); border-radius: 10px; padding: 14px; background: #f7f9ff; }
+.steps { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.step { flex: 1; text-align: center; padding: 8px 4px; border-radius: 6px; background: #eef1f8; font-size: 12px; }
+.step.done { background: var(--success); color: #fff; }

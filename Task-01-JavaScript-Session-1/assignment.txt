@@ -1,0 +1,245 @@
+java Scripts function
+-------------------
+--> function is a group of statements. which is used for perform some task.
+--> in JavaScript function create with function keyword.
+
+
+function functionname(p1,p2....pn)  // called function
+{
+// block of the code
+}
+==================================================
+functionName(val1,val2....valn) // calling function
+================================================
+Exp:
+---
+<script>
+    function addition(n1,n2)
+    {
+        let add=n1+n2;
+        document.write("The addition of 2 numbers="+add);
+    }
+addition(100,900);
+</script>
+=========================================
+Basically function prepare in JavaScript in 4 ways
+---------------------------------------------
+1. with return type with parameter  (return) 
+2. with return type with out parameter  ( (return) )
+3. with out return type with parameter
+4. with out return type with out parameter
+================================================
+
+
+<script>
+    function simple_interest(price,time,rate)
+    {
+        simple_interest=(price*time*rate)/100;
+        return simple_interest; 
+    }
+let result=simple_interest(45000.99,12,2.25);
+document.write(result);
+</script>
+<p></p>
+<script>
+    function simple_interest()
+    {
+        let price=8000.99;
+        let time=12;
+        let rate=3.75;
+        simple_interest=(price*time*rate)/100;
+        return simple_interest;
+        
+    }
+let result2=simple_interest();
+document.write(result2);
+</script>
+<p></p>
+<script>
+    function simple_interest(price,time,rate)
+    {
+        simple_interest=(price*time*rate)/100;
+        document.write(simple_interest);
+        
+    }
+    simple_interest(85000.99,12,7.25);
+
+</script>
+<p></p>
+<script>
+    function simple_interest()
+    {
+        let price=7000.99;
+        let time=12;
+        let rate=5.75;
+        simple_interest=(price*time*rate)/100;
+        document.write(simple_interest);
+    }
+    simple_interest();
+</script>
+==============================================================
+arrow function
+--------------
+An arrow function is a shorter way of writing a function in JavaScript.
+it was introduced in ECMA script 2015) 6.
+
+=> (arrow)  symbol
+
+============================================================
+let add=(p1,p2)=>
+{
+add=n1+n2;
+document.write(add);
+}
+add(10,20);
+================================
+let add=(p1,p2)=>
+{
+return n1+n2;
+}
+let result=add(10,20);
+console.log(result);
+===========================================================
+
+case1: Arrow function with Arrays
+---------------------------------------
+let arr=[100,200,300,400,500]
+arr.forEach(num=>{
+console.log(num+"<br>");
+});
+
+case2: Arrow with map() function
+
+
+
+==============================================
+Real-World Applications of JavaScript Functions
+A function is a block of code designed to perform a specific task. In real-world applications, functions help us divide large applications into smaller operations.
+
+Here are practical examples without programming code.
+1. Banking Application
+
+Scenario: A customer visits a bank or uses an ATM to perform transactions.
+
+Functions involved:
+
+customer = [
+    {
+        "accno": 123,
+        "name": "Sai",
+        "acc_type": "Saving",
+        "address": "Hyderabad",
+"balance":500
+
+    },
+    {
+        "accno": 124,
+        "name": "Ravi",
+        "acc_type": "Current",
+        "address": "Secunderabad"
+    },
+    {
+        "accno": 125,
+        "name": "Kiran",
+        "acc_type": "Saving",
+        "address": "Kukatpally"
+    }
+]
+
+print(customer)1. Account Login – Authenticate customer details.
+2. Balance Enquiry – Check available account balance.
+3. Deposit – Add money to the account.
+4. Withdraw – Withdraw money from the account.
+5. Fund Transfer – Transfer money to another account.
+6. Mini Statement – Display recent transactions.
+7. Logout – Securely close the banking session.
+
+==============================================================
+2. Online Food Ordering Application
+
+Scenario: A customer orders food through an online application.
+
+Functions involved:
+1. Display Menu – Show available food items.
+2. Select Food – Choose food items.
+3. Add to Cart – Add selected items to cart.
+4. Remove Item – Remove unwanted food items.
+5. Calculate Bill – Calculate total food cost.
+6. Apply Coupon – Apply discount offers.
+7. Make Payment – Complete online payment.
+8. Track Order – Track food delivery status.
+9. Cancel Order – Cancel the order.
+=============================================
+3. Online Movie Ticket Booking Application
+
+Scenario: A customer wants to book movie tickets online.
+
+Functions involved:
+1. Display Movies – Show currently available movies.
+2. Select Movie – Choose a movie.
+3. Select Theatre – Choose a cinema theatre.
+4. Select Date – Choose movie date.
+5. Select Show Time – Select morning, afternoon or evening.
+6. Check Seat Availability – Display available seats.
+7. Book Tickets – Confirm selected seats.
+8. Calculate Ticket Price – Calculate total ticket cost.
+9. Make Payment – Complete payment.
+10. Generate Ticket – Generate booking confirmation.
+
+=====================================================
+4. E-Commerce Shopping Application
+
+Scenario: A customer purchases products through an online shopping website.
+
+Functions involved:
+1. User Registration – Create a new account.
+2. User Login – Authenticate customer.
+3. Display Products – Show available products.
+4. Search Product – Search for a particular product.
+5. Add to Cart – Add products to shopping cart.
+6. Calculate Price – Calculate total amount.
+7. Apply Discount – Apply promotional offers.
+8. Calculate GST – Calculate applicable tax.
+9. Payment – Process payment.
+10. Order Tracking – Track delivery status.
+=========================================
+5. Hospital Management Application
+
+Scenario: A patient visits a hospital for treatment.
+
+Functions involved:
+1. Patient Registration – Register patient details.
+2. Doctor Availability – Check available doctors.
+3. Appointment Booking – Schedule appointments.
+4. Patient History – Retrieve previous medical records.
+5. Generate Prescription – Prepare prescriptions.
+6. Generate Bill – Calculate consultation and treatment charges.
+7. Payment – Process hospital bills.
+
+=================================================
+6. Railway Ticket Booking Application
+
+Scenario: A passenger wants to book a railway ticket.
+
+Functions involved:
+1. Search Trains – Find available trains.
+2. Select Source – Select starting station.
+3. Select Destination – Select destination station.
+4. Check Availability – Check available seats.
+5. Select Class – Choose Sleeper, AC, etc.
+6. Calculate Fare – Calculate ticket price.
+7. Book Ticket – Confirm reservation.
+8. Cancel Ticket – Cancel reservation.
+9. Check PNR Status – Check ticket status.
+==============================================================
+
+
+
+
+
+
+
+
+
+
+

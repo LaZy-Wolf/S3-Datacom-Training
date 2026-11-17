@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital Management</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>5. Hospital Management Application</h1>
+    <p>Register patients, check doctors, book appointments, view history, prescribe, bill and pay. <a href="../index.html">All projects</a></p>
+  </header>
+  <main>
+    <section>
+      <!-- 1. Patient Registration -->
+      <div class="card">
+        <h2>Patient Registration <span class="function-name">patientRegistration(name, age, gender, phone)</span></h2>
+        <div class="row">
+          <div><label>Name</label><input id="patientName"></div>
+          <div><label>Age</label><input id="patientAge" type="number" min="0" max="120"></div>
+          <div><label>Gender</label><select id="patientGender"><option>Male</option><option>Female</option><option>Other</option></select></div>
+          <div><label>Phone (10 digits)</label><input id="patientPhone"></div>
+        </div>
+        <button onclick="patientRegistration(getElement('patientName').value, getElement('patientAge').value, getElement('patientGender').value, getElement('patientPhone').value)">Register</button>
+        <div id="registrationMessage" class="message"></div>
+      </div>
+
+      <!-- 2. Doctor Availability -->
+      <div class="card">
+        <h2>Doctor Availability <span class="function-name">doctorAvailability(specialization, day)</span></h2>
+        <div class="row">
+          <div><label>Specialization</label><select id="specialization"></select></div>
+          <div><label>Day</label><select id="day"><option>Any</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option></select></div>
+        </div>
+        <button onclick="doctorAvailability(getElement('specialization').value, getElement('day').value)">Check Availability</button>
+        <div id="doctors"></div>
+      </div>
+
+      <!-- 3. Appointment Booking -->
+      <div class="card">
+        <h2>Appointment Booking <span class="function-name">appointmentBooking(patientId, doctorId, date, slot)</span></h2>
+        <p class="badge">Demo patient already registered: P1001 (Anil Kumar)</p>
+        <div class="row">
+          <div><label>Patient ID</label><input id="appointmentPatientId" placeholder="P1001"></div>
+          <div><label>Doctor</label><select id="appointmentDoctor"></select></div>
+          <div><label>Date</label><input id="appointmentDate" type="date"></div>
+          <div><label>Time Slot</label><select id="appointmentSlot"><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>03:00 PM</option><option>04:00 PM</option></select></div>
+        </div>
+        <button onclick="appointmentBooking(getElement('appointmentPatientId').value, getElement('appointmentDoctor').value, getElement('appointmentDate').value, getElement('appointmentSlot').value)">Book Appointment</button>
+        <div id="appointmentMessage" class="message"></div>
+      </div>
+
+      <!-- 4. Patient History -->
+      <div class="card">
+        <h2>Patient History <span class="function-name">patientHistory(patientId)</span></h2>
+        <label>Patient ID</label><input id="historyPatientId" placeholder="P1001">
+        <button onclick="patientHistory(getElement('historyPatientId').value)">Get History</button>
+        <div id="history"></div>
+      </div>
+
+      <!-- 5. Generate Prescription -->
+      <div class="card">
+        <h2>Generate Prescription <span class="function-name">generatePrescription(patientId, doctorId, diagnosis, medicines)</span></h2>
+        <div class="row">
+          <div><label>Patient ID</label><input id="prescriptionPatientId" placeholder="P1001"></div>
+          <div><label>Doctor</label><select id="prescriptionDoctor"></select></div>
+        </div>
+        <label>Diagnosis</label><input id="prescriptionDiagnosis" placeholder="Viral fever">
+        <label>Medicines (one per line: name - dosage - days)</label>
+        <textarea id="prescriptionMedicines" rows="3" style="width:100%" placeholder="Paracetamol 650 milligram - twice a day - 5 days"></textarea>
+        <button onclick="generatePrescription(getElement('prescriptionPatientId').value, getElement('prescriptionDoctor').value, getElement('prescriptionDiagnosis').value, getElement('prescriptionMedicines').value)">Generate Prescription</button>
+        <div id="prescriptionMessage" class="message"></div>
+        <div id="prescription"></div>
+      </div>
+
+      <!-- 6. Generate Bill + 7. Payment -->
+      <div class="card">
+        <h2>Billing <span class="function-name">generateBill(patientId, tests, days) · payment(billNumber, method)</span></h2>
+        <div class="row">
+          <div><label>Patient ID</label><input id="billPatientId" placeholder="P1001"></div>
+          <div><label>Room days (0 if outpatient)</label><input id="billRoomDays" type="number" min="0" value="0"></div>
+        </div>
+        <label>Tests done</label>
+        <div id="tests"></div>
+        <button onclick="generateBill(getElement('billPatientId').value, checkedTests(), getElement('billRoomDays').value)">Generate Bill</button>
+        <div id="billMessage" class="message"></div>
+        <div id="bill"></div>
+        <label>Payment Method</label>
+        <select id="paymentMethod"><option>Cash</option><option>UPI</option><option>Card</option><option>Insurance</option></select>
+        <button onclick="payment(currentBill && currentBill.billNumber, getElement('paymentMethod').value)">Pay Bill</button>
+        <div id="paymentMessage" class="message"></div>
+      </div>
+    </section>
+    <aside id="activityLog"><h3>Activity Log (function calls)</h3></aside>
+  </main>
+  <script src="../common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

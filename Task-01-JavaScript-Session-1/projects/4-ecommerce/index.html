@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Commerce Shopping</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>4. E-Commerce Shopping Application</h1>
+    <p>Register, login, browse and search products, cart, discount, GST, pay and track. <a href="../index.html">All projects</a></p>
+  </header>
+  <main>
+    <section>
+      <div class="row" id="authArea">
+        <!-- 1. User Registration -->
+        <div class="card">
+          <h2>Register <span class="function-name">userRegistration(name, email, password)</span></h2>
+          <label>Full Name</label><input id="registerName">
+          <label>Email</label><input id="registerEmail" type="email">
+          <label>Password (minimum 6 characters)</label><input id="registerPassword" type="password">
+          <button onclick="userRegistration(getElement('registerName').value, getElement('registerEmail').value, getElement('registerPassword').value)">Create Account</button>
+          <div id="registerMessage" class="message"></div>
+        </div>
+        <!-- 2. User Login -->
+        <div class="card">
+          <h2>Login <span class="function-name">userLogin(email, password)</span></h2>
+          <p class="badge">Demo: demo@shop.com / demo123</p>
+          <label>Email</label><input id="loginEmail" type="email">
+          <label>Password</label><input id="loginPassword" type="password">
+          <button onclick="userLogin(getElement('loginEmail').value, getElement('loginPassword').value)">Login</button>
+          <div id="loginMessage" class="message"></div>
+        </div>
+      </div>
+
+      <div id="shopArea" class="hidden">
+        <div class="card"><b>Logged in as <span id="userName"></span></b>
+          <button class="secondary" onclick="logout()">Logout</button></div>
+
+        <!-- 3. Display Products + 4. Search Product -->
+        <div class="card">
+          <h2>Products <span class="function-name">displayProducts(list) · searchProduct(text)</span></h2>
+          <label>Search by name or category</label>
+          <input id="search" oninput="searchProduct(this.value)" placeholder="for example: phone, books, shoes">
+          <div id="products"></div>
+        </div>
+
+        <!-- 5. Add to Cart + 6. Calculate Price + 7. Apply Discount + 8. Calculate GST -->
+        <div class="card">
+          <h2>Cart <span class="function-name">addToCart(productId) · calculatePrice() · applyDiscount(code) · calculateGST()</span></h2>
+          <div id="cart"><p>Cart is empty.</p></div>
+          <label>Promotion Code (try SAVE10 or BIG500)</label><input id="promotionCode">
+          <button onclick="applyDiscount(getElement('promotionCode').value)">Apply Discount</button>
+          <div id="discountMessage" class="message"></div>
+          <div id="summary"></div>
+        </div>
+
+        <!-- 9. Payment -->
+        <div class="card">
+          <h2>Payment <span class="function-name">payment(method)</span></h2>
+          <select id="paymentMethod"><option>UPI</option><option>Credit / Debit Card</option><option>Net Banking</option><option>Cash on Delivery</option></select>
+          <button onclick="payment(getElement('paymentMethod').value)">Pay &amp; Place Order</button>
+          <div id="paymentMessage" class="message"></div>
+        </div>
+
+        <!-- 10. Order Tracking -->
+        <div class="card">
+          <h2>Order Tracking <span class="function-name">orderTracking(orderId)</span></h2>
+          <label>Order ID</label><input id="trackOrderId">
+          <button onclick="orderTracking(getElement('trackOrderId').value)">Track</button>
+          <div class="steps" id="steps"></div>
+          <div id="trackMessage" class="message"></div>
+        </div>
+      </div>
+    </section>
+    <aside id="activityLog"><h3>Activity Log (function calls)</h3></aside>
+  </main>
+  <script src="../common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

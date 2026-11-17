@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banking Application</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>1. Banking Application</h1>
+    <p>Login, check balance, deposit, withdraw, transfer, mini statement, logout. <a href="../index.html">All projects</a></p>
+  </header>
+  <main>
+    <section>
+      <!-- 1. Account Login -->
+      <div class="card" id="loginCard">
+        <h2>Account Login <span class="function-name">accountLogin(accountNumber, pin)</span></h2>
+        <p class="badge">Demo accounts: 123 / PIN 1111 (Sai) · 124 / PIN 2222 (Ravi) · 125 / PIN 3333 (Kiran)</p>
+        <div class="row">
+          <div><label>Account Number</label><input id="accountNumber" type="number" placeholder="123"></div>
+          <div><label>PIN</label><input id="pin" type="password" placeholder="1111"></div>
+        </div>
+        <button onclick="accountLogin(getElement('accountNumber').value, getElement('pin').value)">Login</button>
+        <div id="loginMessage" class="message"></div>
+      </div>
+
+      <div id="bankArea" class="hidden">
+        <div class="card">
+          <h2>Welcome, <span id="customerName"></span> <span class="badge" id="customerType"></span></h2>
+          <!-- 2. Balance Enquiry -->
+          <button onclick="balanceEnquiry()">Balance Enquiry</button>
+          <!-- 7. Logout -->
+          <button class="danger" onclick="logout()">Logout</button>
+          <div id="balanceMessage" class="message"></div>
+        </div>
+
+        <div class="row">
+          <!-- 3. Deposit -->
+          <div class="card">
+            <h2>Deposit <span class="function-name">deposit(amount)</span></h2>
+            <label>Amount</label><input id="depositAmount" type="number" min="1">
+            <button onclick="deposit(getElement('depositAmount').value)">Deposit</button>
+            <div id="depositMessage" class="message"></div>
+          </div>
+          <!-- 4. Withdraw -->
+          <div class="card">
+            <h2>Withdraw <span class="function-name">withdraw(amount)</span></h2>
+            <label>Amount</label><input id="withdrawAmount" type="number" min="1">
+            <button onclick="withdraw(getElement('withdrawAmount').value)">Withdraw</button>
+            <div id="withdrawMessage" class="message"></div>
+          </div>
+        </div>
+
+        <!-- 5. Fund Transfer -->
+        <div class="card">
+          <h2>Fund Transfer <span class="function-name">fundTransfer(toAccountNumber, amount)</span></h2>
+          <div class="row">
+            <div><label>To Account Number</label><input id="toAccountNumber" type="number"></div>
+            <div><label>Amount</label><input id="transferAmount" type="number" min="1"></div>
+          </div>
+          <button onclick="fundTransfer(getElement('toAccountNumber').value, getElement('transferAmount').value)">Transfer</button>
+          <div id="transferMessage" class="message"></div>
+        </div>
+
+        <!-- 6. Mini Statement -->
+        <div class="card">
+          <h2>Mini Statement <span class="function-name">miniStatement()</span></h2>
+          <button onclick="miniStatement()">Show Last 5 Transactions</button>
+          <div id="statement"></div>
+        </div>
+      </div>
+    </section>
+    <aside id="activityLog"><h3>Activity Log (function calls)</h3></aside>
+  </main>
+  <script src="../common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

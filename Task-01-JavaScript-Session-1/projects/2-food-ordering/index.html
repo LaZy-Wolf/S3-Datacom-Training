@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Food Ordering Application</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>2. Online Food Ordering Application</h1>
+    <p>Browse the menu, build a cart, apply a coupon, pay, track or cancel. <a href="../index.html">All projects</a></p>
+  </header>
+  <main>
+    <section>
+      <!-- 1. Display Menu + 2. Select Food -->
+      <div class="card">
+        <h2>Menu <span class="function-name">displayMenu() · selectFood(id)</span></h2>
+        <div id="menu"></div>
+      </div>
+
+      <!-- 3. Add to Cart -->
+      <div class="card">
+        <h2>Selected Item <span class="function-name">addToCart(quantity)</span></h2>
+        <p id="selectedText">No item selected. Click "Select" on a menu item.</p>
+        <label>Quantity</label><input id="quantity" type="number" min="1" value="1">
+        <button onclick="addToCart(getElement('quantity').value)">Add to Cart</button>
+        <div id="cartMessage" class="message"></div>
+      </div>
+
+      <!-- Cart + 4. Remove Item + 5. Calculate Bill + 6. Apply Coupon -->
+      <div class="card">
+        <h2>Cart <span class="function-name">removeItem(id) · calculateBill() · applyCoupon(code)</span></h2>
+        <div id="cart"><p>Cart is empty.</p></div>
+        <div class="row">
+          <div><label>Coupon Code (try FOOD10 or FLAT50)</label><input id="coupon"></div>
+        </div>
+        <button onclick="applyCoupon(getElement('coupon').value)">Apply Coupon</button>
+        <button class="secondary" onclick="calculateBill()">Calculate Bill</button>
+        <div id="couponMessage" class="message"></div>
+        <div id="bill"></div>
+      </div>
+
+      <!-- 7. Make Payment -->
+      <div class="card">
+        <h2>Payment <span class="function-name">makePayment(method)</span></h2>
+        <label>Payment Method</label>
+        <select id="paymentMethod">
+          <option>UPI</option><option>Credit / Debit Card</option><option>Net Banking</option><option>Cash on Delivery</option>
+        </select>
+        <button onclick="makePayment(getElement('paymentMethod').value)">Pay &amp; Place Order</button>
+        <div id="paymentMessage" class="message"></div>
+      </div>
+
+      <!-- 8. Track Order + 9. Cancel Order -->
+      <div class="card">
+        <h2>Order Status <span class="function-name">trackOrder() · cancelOrder()</span></h2>
+        <div class="steps" id="steps"></div>
+        <button onclick="trackOrder()">Track Order (refresh status)</button>
+        <button class="danger" onclick="cancelOrder()">Cancel Order</button>
+        <div id="trackMessage" class="message"></div>
+      </div>
+    </section>
+    <aside id="activityLog"><h3>Activity Log (function calls)</h3></aside>
+  </main>
+  <script src="../common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

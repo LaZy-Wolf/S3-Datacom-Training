@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Ticket Booking</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>3. Online Movie Ticket Booking Application</h1>
+    <p>Pick a movie, theatre, date and show, choose seats, pay and get your ticket. <a href="../index.html">All projects</a></p>
+  </header>
+  <main>
+    <section>
+      <!-- 1. Display Movies + 2. Select Movie -->
+      <div class="card">
+        <h2>Now Showing <span class="function-name">displayMovies() · selectMovie(id)</span></h2>
+        <div id="movies"></div>
+      </div>
+
+      <!-- 3,4,5. Select Theatre / Date / Show Time -->
+      <div class="card">
+        <h2>Show Details <span class="function-name">selectTheatre() · selectDate() · selectShowTime()</span></h2>
+        <p id="movieText">No movie selected.</p>
+        <div class="row">
+          <div><label>Theatre</label><select id="theatre" onchange="selectTheatre(this.value)"></select></div>
+          <div><label>Date</label><select id="date" onchange="selectDate(this.value)"></select></div>
+          <div><label>Show Time</label><select id="showTime" onchange="selectShowTime(this.value)"></select></div>
+        </div>
+        <button onclick="checkSeatAvailability()">Check Seat Availability</button>
+        <div id="showDetailsMessage" class="message"></div>
+      </div>
+
+      <!-- 6. Check Seat Availability + 7. Book Tickets -->
+      <div class="card">
+        <h2>Seats <span class="function-name">checkSeatAvailability() · bookTickets()</span></h2>
+        <p>Screen this way ↓ &nbsp; <span class="badge">Rows A-B Silver ₹150</span> <span class="badge">Rows C-D Gold ₹200</span> <span class="badge">Row E Platinum ₹300</span> <span class="badge">Grey = already booked</span></p>
+        <div id="seatInformation"></div>
+        <div class="seats" id="seats"></div>
+        <button onclick="bookTickets()">Book Selected Seats</button>
+        <div id="bookingMessage" class="message"></div>
+      </div>
+
+      <!-- 8. Calculate Ticket Price + 9. Make Payment -->
+      <div class="card">
+        <h2>Price &amp; Payment <span class="function-name">calculateTicketPrice() · makePayment(method)</span></h2>
+        <div id="price"></div>
+        <label>Payment Method</label>
+        <select id="paymentMethod"><option>UPI</option><option>Credit / Debit Card</option><option>Net Banking</option><option>Wallet</option></select>
+        <button onclick="makePayment(getElement('paymentMethod').value)">Pay Now</button>
+        <div id="paymentMessage" class="message"></div>
+      </div>
+
+      <!-- 10. Generate Ticket -->
+      <div class="card">
+        <h2>Your Ticket <span class="function-name">generateTicket()</span></h2>
+        <div id="ticket"><p>Ticket appears here after payment.</p></div>
+      </div>
+    </section>
+    <aside id="activityLog"><h3>Activity Log (function calls)</h3></aside>
+  </main>
+  <script src="../common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
