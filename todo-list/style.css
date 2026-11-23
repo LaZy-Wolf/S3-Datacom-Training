@@ -1,0 +1,4 @@
+body { font-family: system-ui, sans-serif; max-width: 36rem; margin: 2rem auto; padding: 0 1rem; }
+li { margin: 0.5rem 0; overflow-wrap: anywhere; }
+li button { margin-left: 0.75rem; }
+input:checked + span { text-decoration: line-through; }
