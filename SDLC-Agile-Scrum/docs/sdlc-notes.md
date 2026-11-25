@@ -1,16 +1,20 @@
-# Waterfall and Agile
+# Waterfall vs. Agile
 
-Waterfall and Agile both cover requirements, design, implementation, testing, deployment, and maintenance. They differ in how work is planned and when users can give feedback.
+Waterfall and Agile both involve planning, building, and testing software. The main difference is when the team delivers working features and gets feedback.
 
-| Aspect | Waterfall | Agile |
+| Question | Waterfall | Agile |
 | --- | --- | --- |
-| Planning | Define and approve the scope up front, then plan the phases around it. | Set a product goal, prioritize a backlog, and refine upcoming work as the team learns. |
-| Delivery | Work moves through planned phases and usually reaches users as a larger release. | Deliver small, usable increments and use feedback to shape the next increment. |
-| Testing and feedback | Review phase outputs against agreed baselines, with formal system and acceptance testing later in the plan. | Test each increment and review working software frequently with stakeholders. |
-| Handling changes | Assess scope changes through change control because they may affect the approved schedule or design. | Adjust priorities between iterations as needs and evidence change. |
+| When do we plan? | The team agrees on most requirements before building. | The team sets a goal and plans the next small batch of work. |
+| When do users get something to try? | Usually after the main build and testing phases. | After each small release. |
+| When do we test? | Most full-system testing happens after implementation. | The team tests new features as it adds them. |
+| What if requirements change? | The team reviews how the change affects the original plan. | The team can change what it works on next based on feedback. |
 
-**When Waterfall fits.** A company must replace a payroll export before a cutover date. The receiving system has a fixed file format and a written acceptance checklist. The team can approve the requirements, build to the specification, and complete a formal reconciliation before switching over.
+## When Waterfall fits
 
-**When Agile fits.** A team is building a browser Todo List and is unsure which improvements users will value. It can ship adding, completing, and deleting tasks first, then use feedback to decide whether editing, filtering, or undo should come next.
+Suppose a company needs to replace a payroll export. The payroll software already expects a specific file format, and the company knows the date it needs to switch. The team can agree on the format, build the export, and check that the totals match before switching.
 
-Agile here means iterative delivery guided by feedback. Scrum is one framework a team can use to organize that work. [Manifesto for Agile Software Development](https://agilemanifesto.org/)
+## When Agile fits
+
+For a browser Todo List, the team might start with adding, checking off, and deleting tasks. Once people try it, their feedback can help the team decide whether to add editing, filters, or an undo button next.
+
+Scrum is one way to organize Agile work. [Agile Manifesto](https://agilemanifesto.org/)
