@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f7fa;
+    color: #172b40;
+    font: 1rem/1.5 system-ui, sans-serif;
+}
+
+header {
+    background: #dce8f3;
+}
+
+nav,
+main {
+    width: min(100% - 2rem, 42rem);
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem 0;
+}
+
+main {
+    padding-top: 1rem;
+}
+
+a {
+    color: #17497c;
+}
+
+[aria-current="page"] {
+    font-weight: 700;
+}
+
+.task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid #c3d1e0;
+    border-radius: 0.3rem;
+    background: white;
+}
+
+.task-list strong {
+    white-space: nowrap;
+}
